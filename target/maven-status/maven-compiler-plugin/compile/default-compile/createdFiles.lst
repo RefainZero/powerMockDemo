@@ -1,0 +1,3 @@
+com\rongrong\powermock\service\StudentService.class
+com\rongrong\powermock\dao\StudentDao.class
+com\rongrong\powermock\service\StudentTest.class
