@@ -8,6 +8,7 @@ import com.rongrong.powermock.dao.StudentDao;
  * @date 2019/11/17 21:13
  */
 public class StudentService {
+
     private StudentDao studentDao;
 
     public StudentService(StudentDao studentDao) {
@@ -21,5 +22,13 @@ public class StudentService {
      */
     public int getTotal(StudentDao studentDao) {
         return studentDao.getTotal();
+    }
+
+    /**
+     * create student
+     * @param student
+     */
+    public void createStudent(Student student) {
+        studentDao.createStudent(student);
     }
 }

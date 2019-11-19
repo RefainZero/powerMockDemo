@@ -1,6 +1,7 @@
 package com.rongrong.powermock.service;
 
 import com.rongrong.powermock.dao.StudentDao;
+import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,7 +14,7 @@ import org.testng.annotations.Test;
 public class StudentServiceTest {
 
     @Test
-    public void testGetStudentTotal() {
+    public void testGetStudentTotalWithMock() {
         StudentDao studentDao = PowerMockito.mock(StudentDao.class);
         PowerMockito.when(studentDao.getTotal()).thenReturn(666);
         StudentService studentService = new StudentService(studentDao);
@@ -21,5 +22,23 @@ public class StudentServiceTest {
         Assert.assertEquals(total, 666);
     }
 
+    @Test
+    public void testCreateStudentWithMock() {
+        StudentDao studentDao = PowerMockito.mock(StudentDao.class);
+        Student student=new Student();
+        PowerMockito.doNothing().when(studentDao).createStudent(student);
+        StudentService studentService = new StudentService(studentDao);
+        studentService.createStudent(student);
+        Mockito.verify(studentDao).createStudent(student);
+    }
+
+
+    @Test
+    public void testCreateStudent() {
+        StudentDao studentDao = new StudentDao();
+        Student student=new Student();
+        StudentService studentService = new StudentService(studentDao);
+        studentService.createStudent(student);
+    }
 
 }
