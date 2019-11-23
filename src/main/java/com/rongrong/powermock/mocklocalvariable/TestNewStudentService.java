@@ -1,7 +1,7 @@
-package com.rongrong.powermock.service;
+package com.rongrong.powermock.mocklocalvariable;
 
 import com.rongrong.powermock.dao.StudentDao;
-import org.junit.Assert;
+import com.rongrong.powermock.service.Student;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -18,6 +18,7 @@ import static org.junit.Assert.fail;
  * @date 2019/11/20 21:42
  */
 @RunWith(PowerMockRunner.class)
+//这句注解意思是为我提前准备了StudentNewService的class
 @PrepareForTest(StudentNewService.class)
 public class TestNewStudentService {
 
@@ -39,7 +40,7 @@ public class TestNewStudentService {
         //先模拟一个假对象即studentdao方法中的局部变量
         StudentDao studentDao = PowerMockito.mock(StudentDao.class);
         try {
-            //这句话我按照英文理解就是，我用无参的方式new了一个StudentDao对象
+            //这句话我按照英文理解就是，我用无参的方式new了一个StudentDao对象（模拟录制构造的过程）
             PowerMockito.whenNew(StudentDao.class).withNoArguments().thenReturn(studentDao);
             //再模拟这个对象被调用时，我们默认假定返回10个证明调用成功
             PowerMockito.when(studentDao.getTotal()).thenReturn(10);

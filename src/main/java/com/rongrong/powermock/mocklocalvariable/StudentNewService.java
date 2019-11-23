@@ -1,6 +1,7 @@
-package com.rongrong.powermock.service;
+package com.rongrong.powermock.mocklocalvariable;
 
 import com.rongrong.powermock.dao.StudentDao;
+import com.rongrong.powermock.service.Student;
 
 /**
  * @author rongrong
