@@ -52,10 +52,18 @@ public class TestStudentVerifyService {
             StudentVerifyService studentVerifyService = new StudentVerifyService();
             //调用保存并更新方法
             studentVerifyService.saveOrUpdate(student);
-            //如果存在，这里要去更新学生信息
+            ////如果存在，这里要去更新学生信息
             Mockito.verify(studentVerifyDao).updateStudent(student);
-            //Mockito.never()后就不会走保存的方法了
+            ////Mockito.never()后就不会走保存的方法了
             Mockito.verify(studentVerifyDao,Mockito.never()).saveStudent(student);
+            //至少一次保存
+            Mockito.verify(studentVerifyDao, Mockito.atLeastOnce()).saveStudent(student);
+            //想要调用的次数
+            Mockito.verify(studentVerifyDao, Mockito.times(1)).saveStudent(student);
+            //最多调用1次保存
+            Mockito.verify(studentVerifyDao, Mockito.atMost(1)).saveStudent(student);
+            //最少调用1次保存
+            Mockito.verify(studentVerifyDao, Mockito.atLeast(1)).saveStudent(student);
         } catch (Exception e) {
             e.printStackTrace();
         }
