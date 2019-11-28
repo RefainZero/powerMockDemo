@@ -1,7 +1,5 @@
 package com.rongrong.powermock.mockconstructor;
 
-import com.rongrong.powermock.mocklocalvariable.StudentNewService;
-
 /**
  * @author rongrong
  * @version 1.0
@@ -15,10 +13,10 @@ public class StudentConstructorDao {
 
     /**
      *
-     * @param isInert 数据库是否加载即链接
+     * @param isLoad 数据库是否加载即链接
      * @param dataBaseType 数据库类型
      */
-    public StudentConstructorDao(Boolean isInert,DataBaseType dataBaseType) {
+    public StudentConstructorDao(Boolean isLoad,DataBaseType dataBaseType) {
         throw new UnsupportedOperationException();
     }
 
