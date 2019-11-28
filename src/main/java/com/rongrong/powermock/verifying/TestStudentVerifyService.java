@@ -34,6 +34,7 @@ public class TestStudentVerifyService {
             Mockito.verify(studentVerifyDao).saveStudent(student);
             //这里就不走更新了，所以用了mockito.never()方法
             Mockito.verify(studentVerifyDao,Mockito.never()).updateStudent(student);
+            Mockito.verify(studentVerifyDao, Mockito.atLeast(1)).saveStudent(student);
         } catch (Exception e) {
             e.printStackTrace();
         }

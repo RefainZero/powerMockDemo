@@ -1,6 +1,5 @@
 package com.rongrong.powermock.mockfinal;
 
-import org.easymock.EasyMock;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -16,19 +15,6 @@ import org.powermock.modules.junit4.PowerMockRunner;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(StudentFinalDao.class)
 public class TestStudentFinalService {
-
-    //@Test
-    public void testStudentFinalServiceWithEasyMock(){
-        //mock对象
-        StudentFinalDao studentFinalDao = EasyMock.createMock(StudentFinalDao.class);
-        Student student = new Student();
-        //mock调用，默认返回成功
-        EasyMock.expect(studentFinalDao.isInsert(student)).andReturn(true);
-        EasyMock.replay(studentFinalDao);
-        StudentFinalService studentFinalService = new StudentFinalService(studentFinalDao);
-        studentFinalService.createStudent(student);
-        EasyMock.verify(studentFinalDao);
-    }
 
     @Test
     public void testStudentFinalServiceWithPowerMock(){
