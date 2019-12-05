@@ -7,4 +7,5 @@
 6、PowerMock中Mock constructors的使用<br>
 7、PowerMock中Arguments Matcher的使用<br>
 8、PowerMock中Answer的使用<br>
-9、PowerMock中Spy的使用
+9、PowerMock中Spy的使用(伪装者模式)
+10、PowerMock中Mock private methods的使用
